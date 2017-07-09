@@ -1,0 +1,25 @@
+---
+- name: Ensure Apache is installed on RHEL.
+  yum:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+   - httpd-2.4.6
+   - httpd-devel
+   - mod_ssl
+   - mod_proxy_html
+   - openssh
+
+- name: Copy Vhost Configuration
+  template:
+    src: "default-site.conf.j2"
+    dest: "/etc/httpd/conf.d/default-site.conf"
+  become: true
+
+- name: Ensure Apache is installed on RHEL.
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+  become: true
