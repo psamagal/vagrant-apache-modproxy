@@ -12,15 +12,27 @@ defaults
 
 frontend http-in
     bind *:80
-    default_backend webservers
+    acl webserverslb1 path_beg -i /weblb1
+    acl webserverslb2 path_beg -i /weblb2
 
-backend webservers
+    use_backend webserverslb1 if webserverslb1
+    use_backend webserverslb2 if webserverslb2
+
+backend webserverslb1
     mode http
     balance roundrobin
     option httpchk GET / HTTP/1.1\r\n
     http-check expect status 200
     server web1 192.168.1.221:8080 maxconn 32 check
     server web2 192.168.1.222:8080 maxconn 32 check
+
+backend webserverslb2
+    mode http
+    balance roundrobin
+    option httpchk GET / HTTP/1.1\r\n
+    http-check expect status 200
+    server web3 192.168.1.225:8080 maxconn 32 check
+    server web4 192.168.1.226:8080 maxconn 32 check
 
 listen stats :9000
     mode http

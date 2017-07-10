@@ -18,6 +18,9 @@ Vagrant.configure("2") do |config|
         subconfig.vm.network "public_network", bridge: "enp4s0", ip: "192.168.1.221"
         subconfig.vm.provision "ansible" do |ansible|
             ansible.playbook = "provision/websetup.yml"
+            ansible.extra_vars = {
+                group_name: "weblb1"
+            }
         end
     end
 
@@ -25,9 +28,33 @@ Vagrant.configure("2") do |config|
         subconfig.vm.network "public_network", bridge: "enp4s0", ip: "192.168.1.222"
         subconfig.vm.provision "ansible" do |ansible|
             ansible.playbook = "provision/websetup.yml"
+            ansible.extra_vars = {
+                group_name: "weblb1"
+            }
+
         end
     end
 
+    config.vm.define :web03 do |subconfig|
+        subconfig.vm.network "public_network", bridge: "enp4s0", ip: "192.168.1.225"
+        subconfig.vm.provision "ansible" do |ansible|
+            ansible.playbook = "provision/websetup.yml"
+            ansible.extra_vars = {
+                group_name: "weblb2"
+            }
+
+        end
+    end
+
+    config.vm.define :web04 do |subconfig|
+        subconfig.vm.network "public_network", bridge: "enp4s0", ip: "192.168.1.226"
+        subconfig.vm.provision "ansible" do |ansible|
+            ansible.playbook = "provision/websetup.yml"
+            ansible.extra_vars = {
+                group_name: "weblb2"
+            }
+        end
+    end
 
     config.vm.define :apache01 do |subconfig|
         subconfig.vm.network "public_network", bridge: "enp4s0", ip: "192.168.1.231"

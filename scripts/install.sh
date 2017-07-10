@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 yum install -y epel-release
-yum install -y telnet ansible net-tools unzip
+yum install -y telnet ansible net-tools unzip wget
 
 sudo -u vagrant cp /vagrant/.ssh/* /home/vagrant/.ssh/
 

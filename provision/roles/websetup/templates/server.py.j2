@@ -13,7 +13,7 @@ class myHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         # Send the html message
-        self.wfile.write("{{ app_response }} from {{ inventory_hostname }}")
+        self.wfile.write("{{ app_response }} from {{ inventory_hostname }} in {{ group_name }}")
         return
 
 

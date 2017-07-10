@@ -1,12 +1,17 @@
 # Vagrant-Apache-ModProxy
 Overview 
 
-<img src="https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg" align="middle">
+<p align="center">
+    <img src="https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg">
+</p>
 
 ### Tools deployed
-* Minimalistic web application (built in Python)
-* HAProxy
-* Apache
+* Minimalistic web application (built in Python) and deployed as a service
+* HAProxy to support three load balancers.
+    * Two to support backend services. LB2 and LB3 with Http support.
+    * One to support frontend apache. LB1 with Https support.
+* Apache servers to allow the redirection and enforcing security rules.
+
 
 Tools used in preparation
 * Vagrant
