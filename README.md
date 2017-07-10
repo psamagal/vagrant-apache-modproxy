@@ -1,7 +1,7 @@
 # Vagrant-Apache-ModProxy
 Overview 
 
-<img src="https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg">
+<img src="https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg" align="middle">
 
 ### Tools deployed
 * Minimalistic web application (built in Python)
