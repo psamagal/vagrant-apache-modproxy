@@ -1,7 +1,6 @@
 # Vagrant-Apache-ModProxy
-...
+Overview 
 
-![Alt text](https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg)
 <img src="https://rawgit.com/psamagal/vagrant-apache-modproxy/master/overview.svg">
 
 ### Tools deployed
