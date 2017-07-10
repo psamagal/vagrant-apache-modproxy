@@ -43,3 +43,5 @@ to access the HAProxy stats page
 ```
 http://localhost:9000/stats 
 ```
+
+Note: In progress task
